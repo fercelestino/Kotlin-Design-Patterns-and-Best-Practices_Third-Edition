@@ -13,7 +13,7 @@ fun threadsMemory() {
     val counter = AtomicInteger()
 
     val threads: List<Thread> = try {
-        List(10_000) {
+        List(1000) {
             thread {
                 Thread.sleep(1000)
                 counter.incrementAndGet()

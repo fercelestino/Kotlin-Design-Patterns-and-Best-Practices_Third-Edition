@@ -2,11 +2,12 @@ import kotlinx.coroutines.*
 
 fun main() {
     runBlocking {
+        //this é o escopo - pode ser omitido
         // Prints DeferredCoroutine{Active}
-        println("Result: ${getResult()}")
+        println("Result: ${this.getResult()}")
 
         // Prints "OK"
-        println("Result: ${getResultAsync().await()}")
+        println("Result: ${this.getResultAsync().await()}")
     }
 }
 

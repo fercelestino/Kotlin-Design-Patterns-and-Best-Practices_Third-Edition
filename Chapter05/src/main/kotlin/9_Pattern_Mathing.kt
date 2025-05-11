@@ -10,18 +10,25 @@ fun main() {
     }
 }
 
-fun getSound(animal: Animal): String {
-    var sound: String? = null;
+//fun getSound(animal: Animal): String {
+//    var sound: String? = null;
+//
+//    if (animal is Cat) {
+//        sound = animal.purr();
+//    } else if (animal is Dog) {
+//        sound = animal.bark();
+//    }
+//
+//    checkNotNull(sound)
+//
+//    return sound;
+//}
 
-    if (animal is Cat) {
-        sound = animal.purr();
-    } else if (animal is Dog) {
-        sound = animal.bark();
-    }
-
-    checkNotNull(sound)
-
-    return sound;
+fun getSound(animal: Animal) = when(animal) {
+    is Cat -> animal.purr()
+    is Dog -> animal.bark()
+    is Crow -> animal.caw()
+    //else -> throw IllegalStateException("No Crows allowed")
 }
 
 class Cat : Animal {
@@ -42,4 +49,4 @@ class Crow : Animal {
     }
 }
 
-interface Animal 
+sealed interface Animal

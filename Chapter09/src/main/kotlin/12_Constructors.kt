@@ -13,8 +13,10 @@ class User(val name: String, val resetPassword: Boolean) {
     constructor(name: String) : this(name, true)
 } */
 
-@NeedsNoArgs
-class User(val name: String, val resetPassword: Boolean = true)
+//@NeedsNoArgs
+class User(val name: String, val resetPassword: Boolean = true) {
+    constructor(): this("nobody")
+}
 
 
-annotation class NeedsNoArgs
+//annotation class NeedsNoArgs

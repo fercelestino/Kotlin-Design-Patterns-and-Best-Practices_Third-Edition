@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.0.0-Beta4"
+    kotlin("jvm") version "2.1.20"
 }
 
 group = "me.soshin"
@@ -10,5 +10,5 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(19)
 }

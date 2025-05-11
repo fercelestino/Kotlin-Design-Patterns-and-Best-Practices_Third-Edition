@@ -3,7 +3,7 @@ import kotlin.random.Random
 
 fun main() {
     runBlocking {
-        val value = valueAsync()
+        val value = valueAsync2()
         println(value.await())
     }
 }
@@ -21,4 +21,17 @@ suspend fun valueAsync(): Deferred<String> = coroutineScope {
         }
     }
     deferred
+}
+
+//Implementação equivalente à acima
+fun valueAsync2(): Deferred<String> {
+    val scope = CoroutineScope(Dispatchers.Default)
+    return scope.async {
+        delay(100)
+        if (Random.nextBoolean()) {
+            "OK"
+        } else {
+            throw RuntimeException()
+        }
+    }
 }

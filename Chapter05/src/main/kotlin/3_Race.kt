@@ -14,7 +14,7 @@ scores[0].score = 2
             for (i in 1..1000) {
                 scores[0].score = scores[0].score + 1
             }
-            println("Done")
+            println("Done $it")
         }
     }
 

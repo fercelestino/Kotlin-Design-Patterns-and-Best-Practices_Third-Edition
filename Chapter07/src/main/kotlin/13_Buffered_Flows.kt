@@ -2,6 +2,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 fun main() {
@@ -11,15 +12,18 @@ fun main() {
             println("New subscriber!")
             (1..10).forEach {
                 println("Sending $it")
+                delay(1000)
                 emit(it)
             }
         }
 
         (1..4).forEach { coroutineId ->
-            delay(5000)
-            numbersFlow.buffer().collect { number ->
+            launch {
                 delay(1000)
-                println("Coroutine $coroutineId received $number")
+                numbersFlow.buffer().collect { number ->
+                    //delay(1000)
+                    println("Coroutine $coroutineId received $number")
+                }
             }
         }
     }

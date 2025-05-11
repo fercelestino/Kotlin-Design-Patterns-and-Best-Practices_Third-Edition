@@ -1,4 +1,4 @@
-import arrow.core.continuations.either
+import arrow.core.raise.either
 import kotlinx.coroutines.*
 import kotlin.random.Random
 import arrow.fx.coroutines.*

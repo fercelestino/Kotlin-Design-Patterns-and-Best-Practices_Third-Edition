@@ -6,7 +6,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main() {
     flowsAndExceptions()
-    flowOnExample()
+    //flowOnExample()
 }
 
 fun flowOnExample() =

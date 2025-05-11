@@ -1,6 +1,9 @@
 fun main() {
-    with(JamesBondMovie()) {
+    val actor = with(JamesBondMovie()) {
         actorName = "Pierce Brosnan"
         println(this.actorName)
-    }
+        this
+    }.actorName
+
+    println("outside $actor")
 }

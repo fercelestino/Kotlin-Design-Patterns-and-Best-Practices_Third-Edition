@@ -6,13 +6,13 @@ import kotlinx.coroutines.runBlocking
 fun main() {
     runBlocking {
         launch {
-            println(Thread.currentThread().name)
+            println("unspecified ${Thread.currentThread().name}")
         }
         GlobalScope.launch {
             println("GlobalScope.launch: ${Thread.currentThread().name}")
         }
         launch(Dispatchers.Default) {
-            println(Thread.currentThread().name)
+            println("default: ${Thread.currentThread().name}")
         }
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.0.0-Beta4"
+    kotlin("jvm") version "2.1.20"
 }
 
 group = "me.soshin"
@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
 }
 
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(19)
 }

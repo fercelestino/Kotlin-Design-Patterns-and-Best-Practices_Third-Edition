@@ -1,12 +1,37 @@
 fun main() {
 
+    //Abordagem do livro
+    //------------------------------------------
     val sql = select("name", "age") {
         from("users") {
             where("age > 25")
         } // Closes from
     } // Closes select
+    //------------------------------------------
+
+    //Abordagem 1 - define explicitamente as funções
+    //-----------------------------------------
+    val funConfigWhere = fun(fromClause: FromClause) {
+        fromClause.where("age > 25")
+        return Unit
+    }
+    val funConfigFrom = fun (selectClause: SelectClause)  {
+        selectClause.from("users", funConfigWhere)
+        return Unit
+    }
+
+    val sql2 = select("name", "age", from=funConfigFrom)
+    //-----------------------------------
+
+    //Abordagem 2 - usar apply
+    //-----------------------------------
+    val sql3 = select("name", "age") { this.from("users") { this.where("age > 25")} }
+    //-----------------------------------
+
 
     println(sql) // "SELECT name, age FROM users WHERE age > 25"
+    println(sql2)
+    println(sql3)
 }
 
 fun select(vararg columns: String, from: SelectClause.() -> Unit):

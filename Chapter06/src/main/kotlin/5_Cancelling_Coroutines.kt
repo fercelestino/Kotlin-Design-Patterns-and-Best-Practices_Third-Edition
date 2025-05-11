@@ -8,7 +8,7 @@ fun main() = runBlocking {
                 yield()
             }
         } catch (e: CancellationException) {
-            e.printStackTrace()
+            println("Cancellable cancelled")
         }
     }
 
